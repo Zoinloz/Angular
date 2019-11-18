@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular-TP';
+  title = 'Angular';
+  clickme(){
+    this.title = 'Angular-TP';
+  }
 }

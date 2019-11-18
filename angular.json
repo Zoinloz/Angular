@@ -67,7 +67,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Angular-TP:build"
+            "browserTarget": "Angular-TP:build",
+            "open":true
+            
           },
           "configurations": {
             "production": {
