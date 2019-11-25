@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+login : string;
+mdp : string;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+connexion(){
+  console.log('login', this.login);
+  console.log('mdp', this.mdp);
+}
 
 }

@@ -1,1 +1,16 @@
-<p>login works!</p>
+<div>
+<!--     
+    <input type="text" name="firstname" placeholder="login" > -->
+    <mat-form-field>
+            <input matInput placeholder="Login" [(ngModel)]="login">
+          </mat-form-field>
+    
+    <br>
+
+    <mat-form-field>
+            <input matInput placeholder="Password" [(ngModel)]="mdp">
+          </mat-form-field>
+    <br><br>
+
+    <button type="submit" (click)="connexion()">Log in </button>
+  </div>
