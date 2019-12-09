@@ -13,13 +13,15 @@ import {MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
