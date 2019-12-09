@@ -1,5 +1,7 @@
 # AngularTP
 
+![Build Status](https://github.com/Zoinloz/Angular/workflows/Angular%20CI/badge.svg)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
 
 ## Development server
