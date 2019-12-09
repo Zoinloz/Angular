@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   login: string;
   mdp: string;
-  logged = true;
+  logged = false;
   loading = false;
 
   constructor(private _snackBar: MatSnackBar, private http: HttpClient) { }
