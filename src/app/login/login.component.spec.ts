@@ -6,28 +6,31 @@ import { MatSpinner, MatProgressSpinnerModule } from '@angular/material/progress
 import {MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInput, MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let httpTestingController : HttpTestingController
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports :[FormsModule, 
         MatProgressSpinnerModule, 
         MatInputModule, 
-        HttpClientModule,
+        HttpClientTestingModule,
         MatSnackBarModule,
         BrowserAnimationsModule],
       declarations: [ LoginComponent ]
     })
-    .compileComponents();
+    .compileComponents(); 
+    
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    httpTestingController = TestBed.get(HttpTestingController);
     fixture.detectChanges();
   });
 
@@ -44,14 +47,52 @@ describe('LoginComponent', () => {
     
   });
 
-  // it('connexion', () => {
+  it('connexion true', () => {
+    // Test initialisation du test
+    const user = 'Bret'
+    expect(component.logged).toBeFalsy();
+    expect(component.login).toBeUndefined();
+    component.login = user;
+
+    //Exe de la méthode de test
+    component.connexion();
+
+    // Attend toi à avoir une requête GET (par défaut) sur cette URL
+    const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/users?username='+component.login)
     
-  //   expect(component.logged).toBeFalsy();
-  //   component.connexion();
-  //   expect(component.login).toBeDefined();
-  //   expect(component.mdp).toBeNull();
-  //   expect(component.loading).toBeTruthy();
+    // Répond à la requête avec telle réponse
+    req.flush([{}]);
+
+    // Vérification que toutes les req sont traités
+    httpTestingController.verify();
+
+    // Test bon déroulement de la méthode
+    expect(component.logged).toBeTruthy();
     
-  // });
+  });
+
+  it('connexion false', () => {
+    // Test initialisation du test
+    const user = ''
+    expect(component.logged).toBeFalsy();
+    expect(component.login).toBeUndefined();
+    component.login = user;
+
+    //Exe de la méthode de test
+    component.connexion();
+
+    // Attend toi à avoir une requête GET (par défaut) sur cette URL
+    const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/users?username='+component.login)
+    
+    // Répond à la requête avec telle réponse
+    req.flush([]);
+
+    // Vérification que toutes les req sont traités
+    httpTestingController.verify();
+
+    // Test bon déroulement de la méthode
+    expect(component.logged).toBeFalsy();
+    
+  });
 
 });

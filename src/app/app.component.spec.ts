@@ -22,10 +22,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  // it(`should have as title 'Angular-TP'`, () => {
+  // it(`should have as title 'AngularTP'`, () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   const app = fixture.debugElement.componentInstance;
-  //   expect(app.title).toEqual('Angular-TP');
+  //   expect(app.title).toEqual('AngularTP');
   // });
 
   // it('should render title', () => {

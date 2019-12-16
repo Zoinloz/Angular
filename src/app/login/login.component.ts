@@ -32,14 +32,13 @@ export class LoginComponent implements OnInit {
 
        
         
-        setTimeout(() => {
+        
 
           if(value.length === 1){
             this.logged = true; 
           
              this._snackBar.open("Bonjour, "+this.login+" !", null, {
                duration: 2000,
-
              });
            }
     
@@ -51,7 +50,7 @@ export class LoginComponent implements OnInit {
     
           this.loading = false;
     
-        }, 2000);
+        
 
       
 
