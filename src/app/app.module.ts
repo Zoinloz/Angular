@@ -14,6 +14,7 @@ import {MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { Page404Component } from './page404/page404.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Page404Component } from './page404/page404.component';
     HomeComponent,
     HeaderComponent,
     LoginComponent,
-    Page404Component
+    Page404Component,
+    ListComponent
   ],
   imports: [
     BrowserModule,
