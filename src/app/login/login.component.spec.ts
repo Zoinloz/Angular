@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { MatSpinner, MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -11,20 +11,20 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let httpTestingController : HttpTestingController
+  let httpTestingController: HttpTestingController
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports :[FormsModule, 
-        MatProgressSpinnerModule, 
-        MatInputModule, 
+      imports: [FormsModule,
+        MatProgressSpinnerModule,
+        MatInputModule,
         HttpClientTestingModule,
         MatSnackBarModule,
         BrowserAnimationsModule],
-      declarations: [ LoginComponent ]
+      declarations: [LoginComponent]
     })
-    .compileComponents(); 
-    
+      .compileComponents();
+
   }));
 
   beforeEach(() => {
@@ -39,12 +39,12 @@ describe('LoginComponent', () => {
   });
 
   it('good init', () => {
-    
+
     expect(component.logged).toBeFalsy();
     expect(component.login).toBeUndefined();
     expect(component.mdp).toBeUndefined();
     expect(component.loading).toBeFalsy();
-    
+
   });
 
   it('connexion true', () => {
@@ -58,8 +58,8 @@ describe('LoginComponent', () => {
     component.connexion();
 
     // Attend toi à avoir une requête GET (par défaut) sur cette URL
-    const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/users?username='+component.login)
-    
+    const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/users?username=' + component.login)
+
     // Répond à la requête avec telle réponse
     req.flush([{}]);
 
@@ -68,7 +68,7 @@ describe('LoginComponent', () => {
 
     // Test bon déroulement de la méthode
     expect(component.logged).toBeTruthy();
-    
+
   });
 
   it('connexion false', () => {
@@ -82,8 +82,8 @@ describe('LoginComponent', () => {
     component.connexion();
 
     // Attend toi à avoir une requête GET (par défaut) sur cette URL
-    const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/users?username='+component.login)
-    
+    const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/users?username=' + component.login)
+
     // Répond à la requête avec telle réponse
     req.flush([]);
 
@@ -92,7 +92,7 @@ describe('LoginComponent', () => {
 
     // Test bon déroulement de la méthode
     expect(component.logged).toBeFalsy();
-    
+
   });
 
 });

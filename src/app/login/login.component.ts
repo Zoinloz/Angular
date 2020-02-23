@@ -27,35 +27,35 @@ export class LoginComponent implements OnInit {
   connexion() {
 
     // Connexion que avec un login 
-    this.http.get('https://jsonplaceholder.typicode.com/users?username='+this.login).subscribe((value: IUser[]) => {
-      console.log('get : '+ this.login ,value.length);
+    this.http.get('https://jsonplaceholder.typicode.com/users?username=' + this.login).subscribe((value: IUser[]) => {
+      console.log('get : ' + this.login, value.length);
 
-       
-        
-        
 
-          if(value.length === 1){
-            this.logged = true; 
-          
-             this._snackBar.open("Bonjour, "+this.login+" !", null, {
-               duration: 2000,
-             });
-           }
-    
-           else {
-             this._snackBar.open("Wrong Logged", null, {
-               duration: 2000,
-             });
-           }
-    
-          this.loading = false;
-    
-        
 
-      
 
-    
-    }, (error: HttpErrorResponse)=>{
+
+      if (value.length === 1) {
+        this.logged = true;
+
+        this._snackBar.open("Bonjour, " + this.login + " !", null, {
+          duration: 2000,
+        });
+      }
+
+      else {
+        this._snackBar.open("Wrong Logged", null, {
+          duration: 2000,
+        });
+      }
+
+      this.loading = false;
+
+
+
+
+
+
+    }, (error: HttpErrorResponse) => {
       console.error('error', error);
     });
 
@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
 
     // }, 2000);
 
- 
+
 
   }
 

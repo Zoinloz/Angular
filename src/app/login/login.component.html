@@ -1,16 +1,16 @@
 <div>
-<!--<input type="text" name="firstname" placeholder="login" > -->
-    <mat-form-field>
-            <input matInput placeholder="Login" [(ngModel)]="login">
-          </mat-form-field>
-    
-    <br>
+  <!--<input type="text" name="firstname" placeholder="login" > -->
+  <mat-form-field>
+    <input matInput placeholder="Login" [(ngModel)]="login">
+  </mat-form-field>
 
-    <mat-form-field>
-            <input type="password" matInput placeholder="Password" [(ngModel)]="mdp">
-          </mat-form-field>
-    <br>
-    <button mat-raised-button color="primary" (click)="connexion()">Log in</button>
-    <!-- <button type="submit" >Log in </button> -->
-    <mat-spinner color="primary" *ngIf="loading" [diameter]="30" style="margin: auto;"></mat-spinner>
-  </div>
+  <br>
+
+  <mat-form-field>
+    <input type="password" matInput placeholder="Password" [(ngModel)]="mdp">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" (click)="connexion()">Log in</button>
+  <!-- <button type="submit" >Log in </button> -->
+  <mat-spinner color="primary" *ngIf="loading" [diameter]="30" style="margin: auto;"></mat-spinner>
+</div>
